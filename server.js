@@ -91,6 +91,8 @@ io.on('connection', (socket) => {
   });
 });
 
+//tedt the
+
 app.get('/rooms', (req, res) => {
   res.json(rooms);
 });

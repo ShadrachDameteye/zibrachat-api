@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoutes');
@@ -14,7 +15,7 @@ app.use('/users', userRoutes);
 require('./connection');
 
 const server = require('http').createServer(app);
-const PORT = 5001;
+// const PORT = 5001;
 const io = require('socket.io')(server, {
   cors: {
     origin: 'http://localhost:3000',
@@ -94,6 +95,6 @@ app.get('/rooms', (req, res) => {
   res.json(rooms);
 });
 
-server.listen(PORT, () => {
+server.listen(process.env.PORT, () => {
   console.log('listening to port', PORT);
 });
